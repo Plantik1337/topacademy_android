@@ -7,7 +7,7 @@ import com.example.topacademy_android.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         private const val ON_CREATE = "ON_CREATE"
     }
 
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.i(ON_CREATE, "Активити создана!")
+        Log.i(ON_CREATE, getString(R.string.onCreate))
     }
 
     override fun onStart() {
