@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TopacAdemy_android</string>
+    <string name="my_name">Amgalan Borgolov</string>
+    <string name="activity_created">Activity created!</string>
 </resources>
