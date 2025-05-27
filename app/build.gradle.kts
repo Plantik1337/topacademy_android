@@ -62,6 +62,14 @@ dependencies {
     // Image loading
     implementation("com.github.bumptech.glide:glide:4.15.1")
     
+    // Calculator expression evaluator
+    implementation("net.objecthunter:exp4j:0.4.8")
+    
+    // Architecture components
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("androidx.activity:activity-ktx:1.8.2")
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

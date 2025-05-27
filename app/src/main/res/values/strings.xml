@@ -70,4 +70,10 @@
     <string name="humidity">Влажность</string>
     <string name="wind">Ветер</string>
     <string name="precipitation">Осадки</string>
+    
+    <!-- Calculator Error Messages -->
+    <string name="calc_error_empty_expression">Введите выражение</string>
+    <string name="calc_error_incomplete_expression">Выражение не завершено</string>
+    <string name="calc_error_calculation">Ошибка вычисления</string>
+    <string name="calc_percent_not_implemented">Функция процента пока не реализована</string>
 </resources>
