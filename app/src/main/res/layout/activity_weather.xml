@@ -21,15 +21,182 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
+    <!-- Loading State -->
+    <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_weather"
-        android:textSize="@dimen/text_size_headline"
-        android:textColor="?android:attr/textColorPrimary"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Error State -->
+    <LinearLayout
+        android:id="@+id/errorLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_error"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/text_size_body_large"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_retry"
+            style="@style/Widget.App.Button" />
+
+    </LinearLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/weatherContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_medium">
+
+            <!-- Current Location -->
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_medium"
+                tools:text="Москва, Россия" />
+
+            <!-- Current Weather Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/currentWeatherCard"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/weather_current_card_height"
+                android:layout_marginBottom="@dimen/margin_large"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <FrameLayout
+                    android:id="@+id/currentWeatherBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/weather_sunny_gradient">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/margin_large">
+
+                        <TextView
+                            android:id="@+id/tvCurrentTemperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="72sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="24°" />
+
+                        <TextView
+                            android:id="@+id/tvCurrentDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/weather_card_overlay"
+                            android:textSize="@dimen/text_size_body_large"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvCurrentTemperature"
+                            tools:text="Солнечно" />
+
+                        <ImageView
+                            android:id="@+id/ivCurrentWeatherIcon"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@drawable/ic_launcher_foreground" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="start"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvCurrentFeelsLike"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/weather_card_overlay"
+                                android:textSize="@dimen/text_size_body"
+                                android:layout_marginEnd="@dimen/margin_medium"
+                                tools:text="Ощущается как 26°" />
+
+                            <TextView
+                                android:id="@+id/tvCurrentHumidity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/weather_card_overlay"
+                                android:textSize="@dimen/text_size_body"
+                                tools:text="Влажность: 65%" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </FrameLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 5-day Forecast Header -->
+            <TextView
+                android:id="@+id/tvForecastHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/weather_5_day_forecast"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_medium" />
+
+            <!-- Forecast RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWeatherForecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_weather_forecast" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout> 

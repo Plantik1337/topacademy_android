@@ -91,4 +91,32 @@
     <color name="dark_button_secondary_text">#E6E1E5</color>
     <color name="dark_button_secondary_border">#666666</color>
     <color name="dark_link">#D0BCFF</color>
+
+    <!-- Weather Gradient Colors -->
+    <!-- Sunny -->
+    <color name="weather_sunny_start">#FFD54F</color>
+    <color name="weather_sunny_end">#FF8A65</color>
+    
+    <!-- Cloudy -->
+    <color name="weather_cloudy_start">#90A4AE</color>
+    <color name="weather_cloudy_end">#607D8B</color>
+    
+    <!-- Rainy -->
+    <color name="weather_rainy_start">#5C6BC0</color>
+    <color name="weather_rainy_end">#3F51B5</color>
+    
+    <!-- Stormy -->
+    <color name="weather_stormy_start">#455A64</color>
+    <color name="weather_stormy_end">#263238</color>
+    
+    <!-- Snowy -->
+    <color name="weather_snowy_start">#E1F5FE</color>
+    <color name="weather_snowy_end">#B3E5FC</color>
+    
+    <!-- Foggy -->
+    <color name="weather_foggy_start">#ECEFF1</color>
+    <color name="weather_foggy_end">#CFD8DC</color>
+    
+    <!-- Weather card background -->
+    <color name="weather_card_overlay">#80000000</color>
 </resources>

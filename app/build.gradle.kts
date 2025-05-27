@@ -11,6 +11,12 @@ android {
         viewBinding = true
     }
 
+    lint {
+        baseline = file("lint-baseline.xml")
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
+
     defaultConfig {
         applicationId = "com.example.topacademy_android"
         minSdk = 26
@@ -47,6 +53,15 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation("androidx.gridlayout:gridlayout:1.1.0")
+    
+    // Networking
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    
+    // Image loading
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

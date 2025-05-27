@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.TopacAdemy_android" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -27,13 +27,13 @@
     </style>
 
     <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
-        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="cornerRadius">8dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
     </style>
 
     <style name="Widget.App.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="cornerRadius">8dp</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="strokeColor">@color/light_button_secondary_border</item>

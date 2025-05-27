@@ -25,4 +25,12 @@
     
     <!-- Toolbar -->
     <dimen name="toolbar_height">56dp</dimen>
+    
+    <!-- Weather specific dimensions -->
+    <dimen name="weather_card_height">140dp</dimen>
+    <dimen name="weather_icon_size">64dp</dimen>
+    <dimen name="weather_temperature_size">48sp</dimen>
+    <dimen name="weather_current_card_height">200dp</dimen>
+
+    <dimen name="weather_detail_icon_size">32dp</dimen>
 </resources> 

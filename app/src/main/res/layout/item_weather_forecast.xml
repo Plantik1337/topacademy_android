@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    app:cardBackgroundColor="@android:color/transparent">
+
+    <FrameLayout
+        android:id="@+id/weatherBackground"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/weather_card_height"
+        android:background="@drawable/weather_sunny_gradient">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_medium">
+
+            <!-- Day and Time -->
+            <TextView
+                android:id="@+id/tvDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_body_large"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Сегодня" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/weather_card_overlay"
+                android:textSize="@dimen/text_size_body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDay"
+                android:layout_marginTop="2dp"
+                tools:text="15:00" />
+
+            <!-- Weather Icon -->
+            <ImageView
+                android:id="@+id/ivWeatherIcon"
+                android:layout_width="@dimen/weather_icon_size"
+                android:layout_height="@dimen/weather_icon_size"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toStartOf="@id/tvTemperature"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:src="@drawable/ic_launcher_foreground" />
+
+            <!-- Temperature -->
+            <TextView
+                android:id="@+id/tvTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/weather_temperature_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvDescription"
+                tools:text="24°" />
+
+            <!-- Weather Description -->
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="end"
+                android:textColor="@color/weather_card_overlay"
+                android:textSize="@dimen/text_size_body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivWeatherIcon"
+                app:layout_constraintTop_toBottomOf="@id/tvTemperature"
+                tools:text="Солнечно" />
+
+            <!-- Weather Details -->
+            <LinearLayout
+                android:id="@+id/weatherDetailsLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivWeatherIcon"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:id="@+id/tvHumidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/weather_card_overlay"
+                    android:textSize="@dimen/text_size_caption"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    tools:text="65%" />
+
+                <TextView
+                    android:id="@+id/tvWind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/weather_card_overlay"
+                    android:textSize="@dimen/text_size_caption"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    tools:text="3.2м/с" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</com.google.android.material.card.MaterialCardView> 
