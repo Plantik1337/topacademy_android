@@ -1,30 +1,30 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.weather.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class WeatherResponse(
+data class WeatherResponseDto(
     @SerializedName("list")
-    val list: List<WeatherItem>,
+    val list: List<WeatherItemDto>,
     @SerializedName("city")
-    val city: City
+    val city: CityDto
 )
 
-data class WeatherItem(
+data class WeatherItemDto(
     @SerializedName("dt")
     val dateTime: Long,
     @SerializedName("main")
-    val main: MainWeatherData,
+    val main: MainWeatherDataDto,
     @SerializedName("weather")
-    val weather: List<Weather>,
+    val weather: List<WeatherDto>,
     @SerializedName("wind")
-    val wind: Wind,
+    val wind: WindDto,
     @SerializedName("pop")
     val precipitationProbability: Double,
     @SerializedName("dt_txt")
     val dateTimeText: String
 )
 
-data class MainWeatherData(
+data class MainWeatherDataDto(
     @SerializedName("temp")
     val temperature: Double,
     @SerializedName("feels_like")
@@ -33,21 +33,19 @@ data class MainWeatherData(
     val humidity: Int
 )
 
-data class Weather(
+data class WeatherDto(
     @SerializedName("main")
     val main: String,
     @SerializedName("description")
     val description: String
 )
 
-
-
-data class Wind(
+data class WindDto(
     @SerializedName("speed")
     val speed: Double
 )
 
-data class City(
+data class CityDto(
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
@@ -55,29 +53,12 @@ data class City(
     @SerializedName("country")
     val country: String,
     @SerializedName("coord")
-    val coordinates: Coordinates
+    val coordinates: CoordinatesDto
 )
 
-data class Coordinates(
+data class CoordinatesDto(
     @SerializedName("lat")
     val latitude: Double,
     @SerializedName("lon")
     val longitude: Double
-)
-
-
-data class ProcessedWeatherItem(
-    val dateTime: Long,
-    val dateTimeText: String,
-    val temperature: Int,
-    val feelsLike: Int,
-    val description: String,
-    val humidity: Int,
-    val windSpeed: Double,
-    val precipitationProbability: Int,
-    val weatherType: WeatherType
-)
-
-enum class WeatherType {
-    SUNNY, CLOUDY, RAINY, STORMY, SNOWY, FOGGY
-} 
+) 

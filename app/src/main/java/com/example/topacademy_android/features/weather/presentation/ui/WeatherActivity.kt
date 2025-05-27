@@ -1,18 +1,20 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.weather.presentation.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.topacademy_android.R
+import com.example.topacademy_android.features.weather.domain.model.WeatherItem
+import com.example.topacademy_android.features.weather.presentation.adapter.WeatherForecastAdapter
+import com.example.topacademy_android.features.weather.presentation.helper.WeatherUIHelper
+import com.example.topacademy_android.features.weather.presentation.viewmodel.WeatherViewModel
 import com.google.android.material.appbar.MaterialToolbar
-import kotlinx.coroutines.*
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.math.roundToInt
 
 class WeatherActivity : AppCompatActivity() {
     
@@ -35,9 +37,7 @@ class WeatherActivity : AppCompatActivity() {
     private lateinit var rvWeatherForecast: RecyclerView
     private lateinit var forecastAdapter: WeatherForecastAdapter
     
-    private val weatherApi = WeatherApiService.create()
-    private val job = SupervisorJob()
-    private val scope = CoroutineScope(Dispatchers.Main + job)
+    private val viewModel: WeatherViewModel by viewModels()
     
     // Moscow coordinates as default
     private val latitude = 55.7558
@@ -50,6 +50,7 @@ class WeatherActivity : AppCompatActivity() {
         setupViews()
         setupToolbar()
         setupRecyclerView()
+        setupObservers()
         loadWeatherData()
     }
     
@@ -95,79 +96,39 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
     
-    private fun loadWeatherData() {
-        showLoading()
+    private fun setupObservers() {
+        viewModel.weatherForecast.observe(this) { forecast ->
+            showWeatherData(forecast.cityName, forecast.country, forecast.items)
+        }
         
-        scope.launch {
-            try {
-                val response = withContext(Dispatchers.IO) {
-                    weatherApi.getForecast(
-                        latitude = latitude,
-                        longitude = longitude,
-                        apiKey = WeatherApiService.API_KEY
-                    )
-                }
-                
-                if (response.isSuccessful && response.body() != null) {
-                    val weatherData = response.body()!!
-                    val processedData = processWeatherData(weatherData)
-                    
-                    showWeatherData(weatherData, processedData)
-                } else {
-                    showError()
-                }
-                
-            } catch (e: Exception) {
+        viewModel.isLoading.observe(this) { isLoading ->
+            if (isLoading) {
+                showLoading()
+            }
+        }
+        
+        viewModel.error.observe(this) { error ->
+            error?.let {
                 showError()
             }
         }
     }
     
-    private fun processWeatherData(weatherResponse: WeatherResponse): List<ProcessedWeatherItem> {
-        return weatherResponse.list.take(15).map { item ->
-            val weatherType = determineWeatherType(item.weather.firstOrNull()?.main ?: "")
-            
-            ProcessedWeatherItem(
-                dateTime = item.dateTime,
-                dateTimeText = item.dateTimeText,
-                temperature = item.main.temperature.roundToInt(),
-                feelsLike = item.main.feelsLike.roundToInt(),
-                description = item.weather.firstOrNull()?.description?.replaceFirstChar { 
-                    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() 
-                } ?: "",
-                humidity = item.main.humidity,
-                windSpeed = item.wind.speed,
-                precipitationProbability = (item.precipitationProbability * 100).roundToInt(),
-                weatherType = weatherType
-            )
-        }
+    private fun loadWeatherData() {
+        viewModel.loadWeatherForecast(latitude, longitude)
     }
     
-    private fun determineWeatherType(weatherMain: String): WeatherType {
-        return when (weatherMain.lowercase()) {
-            "clear" -> WeatherType.SUNNY
-            "clouds" -> WeatherType.CLOUDY
-            "rain", "drizzle" -> WeatherType.RAINY
-            "thunderstorm" -> WeatherType.STORMY
-            "snow" -> WeatherType.SNOWY
-            "mist", "fog", "haze" -> WeatherType.FOGGY
-            else -> WeatherType.CLOUDY
-        }
-    }
-    
-
-    
-    private fun showWeatherData(weatherResponse: WeatherResponse, processedData: List<ProcessedWeatherItem>) {
+    private fun showWeatherData(cityName: String, country: String, items: List<WeatherItem>) {
         progressBar.visibility = View.GONE
         errorLayout.visibility = View.GONE
         weatherContent.visibility = View.VISIBLE
         
         // Set location
-        tvLocation.text = "${weatherResponse.city.name}, ${weatherResponse.city.country}"
+        tvLocation.text = "$cityName, $country"
         
         // Set current weather (first item)
-        if (processedData.isNotEmpty()) {
-            val currentWeather = processedData.first()
+        if (items.isNotEmpty()) {
+            val currentWeather = items.first()
             
             tvCurrentTemperature.text = "${currentWeather.temperature}°"
             tvCurrentDescription.text = currentWeather.description
@@ -183,8 +144,8 @@ class WeatherActivity : AppCompatActivity() {
             ivCurrentWeatherIcon.setImageResource(iconResource)
         }
         
-        // Update forecast
-        forecastAdapter.updateData(processedData)
+        // Update forecast (take first 15 items)
+        forecastAdapter.updateData(items.take(15))
     }
     
     private fun showLoading() {
@@ -199,7 +160,7 @@ class WeatherActivity : AppCompatActivity() {
         weatherContent.visibility = View.GONE
     }
     
-    private fun openWeatherDetail(weatherItem: ProcessedWeatherItem) {
+    private fun openWeatherDetail(weatherItem: WeatherItem) {
         val intent = Intent(this, WeatherDetailActivity::class.java).apply {
             putExtra("dateTime", weatherItem.dateTime)
             putExtra("temperature", weatherItem.temperature)
@@ -211,12 +172,5 @@ class WeatherActivity : AppCompatActivity() {
             putExtra("weatherType", weatherItem.weatherType.name)
         }
         startActivity(intent)
-    }
-    
-
-    
-    override fun onDestroy() {
-        super.onDestroy()
-        job.cancel()
     }
 } 

@@ -1,44 +1,12 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.carlist.data.repository
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.appbar.MaterialToolbar
+import com.example.topacademy_android.R
+import com.example.topacademy_android.features.carlist.domain.model.Car
+import com.example.topacademy_android.features.carlist.domain.repository.CarRepository
 
-class ListActivity : AppCompatActivity() {
+class CarRepositoryImpl : CarRepository {
     
-    private lateinit var rvCars: RecyclerView
-    private lateinit var toolbar: MaterialToolbar
-    
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
-        
-        setupToolbar()
-        setupRecyclerView()
-    }
-    
-    private fun setupToolbar() {
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        
-        toolbar.setNavigationOnClickListener {
-            finish()
-        }
-    }
-    
-    private fun setupRecyclerView() {
-        rvCars = findViewById(R.id.rvCars)
-        rvCars.layoutManager = LinearLayoutManager(this)
-        
-        val mockCars = createMockCarData()
-        val adapter = CarAdapter(mockCars)
-        rvCars.adapter = adapter
-    }
-    
-    private fun createMockCarData(): List<Car> {
+    override fun getCars(): List<Car> {
         return listOf(
             Car(
                 brand = "BMW",

@@ -1,4 +1,4 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.weather.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.topacademy_android.R
+import com.example.topacademy_android.features.weather.domain.model.WeatherItem
+import com.example.topacademy_android.features.weather.presentation.helper.WeatherUIHelper
 import java.text.SimpleDateFormat
 import java.util.*
 
 class WeatherForecastAdapter(
-    private var forecastItems: List<ProcessedWeatherItem>,
-    private val onItemClick: (ProcessedWeatherItem) -> Unit
+    private var forecastItems: List<WeatherItem>,
+    private val onItemClick: (WeatherItem) -> Unit
 ) : RecyclerView.Adapter<WeatherForecastAdapter.WeatherViewHolder>() {
 
     class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -76,7 +79,7 @@ class WeatherForecastAdapter(
 
     override fun getItemCount(): Int = forecastItems.size
 
-    fun updateData(newForecastItems: List<ProcessedWeatherItem>) {
+    fun updateData(newForecastItems: List<WeatherItem>) {
         forecastItems = newForecastItems
         notifyDataSetChanged()
     }
@@ -85,6 +88,4 @@ class WeatherForecastAdapter(
         return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
                 cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)
     }
-
-
 } 

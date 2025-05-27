@@ -1,10 +1,12 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.calculator.presentation.ui
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.topacademy_android.R
 import com.example.topacademy_android.databinding.ActivityCalculatorBinding
+import com.example.topacademy_android.features.calculator.presentation.viewmodel.CalculatorViewModel
 
 class CalculatorActivity : AppCompatActivity() {
     

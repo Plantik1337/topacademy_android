@@ -1,5 +1,6 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.weather.data.remote
 
+import com.example.topacademy_android.features.weather.data.remote.dto.WeatherResponseDto
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,7 +16,7 @@ interface WeatherApiService {
         @Query("appid") apiKey: String,
         @Query("units") units: String = "metric",
         @Query("lang") language: String = "ru"
-    ): Response<WeatherResponse>
+    ): Response<WeatherResponseDto>
     
     companion object {
         private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"

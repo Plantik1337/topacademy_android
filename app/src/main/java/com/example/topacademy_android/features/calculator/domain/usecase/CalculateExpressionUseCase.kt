@@ -1,4 +1,6 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.calculator.domain.usecase
+
+import com.example.topacademy_android.features.calculator.domain.repository.CalculatorRepository
 
 class CalculateExpressionUseCase(private val repository: CalculatorRepository) {
     

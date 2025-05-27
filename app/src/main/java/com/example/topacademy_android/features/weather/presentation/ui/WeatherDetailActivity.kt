@@ -1,4 +1,4 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.weather.presentation.ui
 
 import android.os.Bundle
 import android.widget.FrameLayout
@@ -6,6 +6,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.topacademy_android.R
+import com.example.topacademy_android.features.weather.domain.model.WeatherType
+import com.example.topacademy_android.features.weather.presentation.helper.WeatherUIHelper
 import com.google.android.material.appbar.MaterialToolbar
 import java.text.SimpleDateFormat
 import java.util.*
@@ -85,7 +88,7 @@ class WeatherDetailActivity : AppCompatActivity() {
         tvDetailWind.text = String.format("%.1f м/с", windSpeed)
         tvDetailPrecipitation.text = "${precipitation}%"
         
-
+        // Set background
         val backgroundResource = WeatherUIHelper.getBackgroundResource(weatherType)
         detailWeatherBackground.background = ContextCompat.getDrawable(this, backgroundResource)
         
@@ -93,6 +96,4 @@ class WeatherDetailActivity : AppCompatActivity() {
         val iconResource = WeatherUIHelper.getWeatherIcon(weatherType)
         ivDetailWeatherIcon.setImageResource(iconResource)
     }
-    
-
 } 

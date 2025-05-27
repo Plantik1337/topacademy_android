@@ -1,4 +1,7 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.weather.presentation.helper
+
+import com.example.topacademy_android.R
+import com.example.topacademy_android.features.weather.domain.model.WeatherType
 
 object WeatherUIHelper {
     
@@ -23,4 +26,4 @@ object WeatherUIHelper {
             WeatherType.FOGGY -> android.R.drawable.ic_menu_view
         }
     }
-}
+} 

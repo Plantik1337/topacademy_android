@@ -1,10 +1,11 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.calculator.data.repository
 
+import com.example.topacademy_android.features.calculator.domain.repository.CalculatorRepository
 import net.objecthunter.exp4j.ExpressionBuilder
 
-class CalculatorRepository {
+class CalculatorRepositoryImpl : CalculatorRepository {
     
-    fun evaluateExpression(expression: String): Result<Double> {
+    override fun evaluateExpression(expression: String): Result<Double> {
         return try {
             // Заменяем символы на математические операторы для библиотеки
             val processedExpression = expression
@@ -22,7 +23,7 @@ class CalculatorRepository {
         }
     }
     
-    fun formatResult(result: Double): String {
+    override fun formatResult(result: Double): String {
         return if (result == result.toInt().toDouble()) {
             result.toInt().toString()
         } else {

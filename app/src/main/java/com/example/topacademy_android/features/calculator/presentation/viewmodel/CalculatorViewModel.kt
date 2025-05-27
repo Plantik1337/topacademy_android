@@ -1,12 +1,14 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.calculator.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.topacademy_android.features.calculator.data.repository.CalculatorRepositoryImpl
+import com.example.topacademy_android.features.calculator.domain.usecase.CalculateExpressionUseCase
 
 class CalculatorViewModel : ViewModel() {
     
-    private val repository = CalculatorRepository()
+    private val repository = CalculatorRepositoryImpl()
     private val calculateExpressionUseCase = CalculateExpressionUseCase(repository)
     
     private val _currentExpression = MutableLiveData<String>("")

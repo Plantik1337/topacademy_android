@@ -1,4 +1,4 @@
-package com.example.topacademy_android
+package com.example.topacademy_android.features.carlist.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.topacademy_android.R
+import com.example.topacademy_android.features.carlist.domain.model.Car
 import java.text.NumberFormat
 import java.util.Locale
 
