@@ -1,11 +1,12 @@
 package com.example.topacademy_android
 
+import com.example.topacademy_android.features.calculator.data.repository.CalculatorRepositoryImpl
 import org.junit.Test
 import org.junit.Assert.*
 
 class CalculatorRepositoryTest {
 
-    private val repository = CalculatorRepository()
+    private val repository = CalculatorRepositoryImpl()
 
     @Test
     fun `test simple addition`() {

@@ -4,17 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.topacademy_android.features.weather.data.remote.WeatherApiService
-import com.example.topacademy_android.features.weather.data.repository.WeatherRepositoryImpl
 import com.example.topacademy_android.features.weather.domain.model.WeatherForecast
 import com.example.topacademy_android.features.weather.domain.usecase.GetWeatherForecastUseCase
 import kotlinx.coroutines.launch
 
-class WeatherViewModel : ViewModel() {
-    
-    private val apiService = WeatherApiService.create()
-    private val repository = WeatherRepositoryImpl(apiService)
-    private val getWeatherForecastUseCase = GetWeatherForecastUseCase(repository)
+class WeatherViewModel(
+    private val getWeatherForecastUseCase: GetWeatherForecastUseCase
+) : ViewModel() {
     
     private val _weatherForecast = MutableLiveData<WeatherForecast>()
     val weatherForecast: LiveData<WeatherForecast> = _weatherForecast

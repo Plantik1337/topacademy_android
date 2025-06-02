@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +14,7 @@ import com.example.topacademy_android.features.weather.presentation.adapter.Weat
 import com.example.topacademy_android.features.weather.presentation.helper.WeatherUIHelper
 import com.example.topacademy_android.features.weather.presentation.viewmodel.WeatherViewModel
 import com.google.android.material.appbar.MaterialToolbar
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WeatherActivity : AppCompatActivity() {
     
@@ -37,7 +37,7 @@ class WeatherActivity : AppCompatActivity() {
     private lateinit var rvWeatherForecast: RecyclerView
     private lateinit var forecastAdapter: WeatherForecastAdapter
     
-    private val viewModel: WeatherViewModel by viewModels()
+    private val viewModel: WeatherViewModel by viewModel()
     
     // Moscow coordinates as default
     private val latitude = 55.7558

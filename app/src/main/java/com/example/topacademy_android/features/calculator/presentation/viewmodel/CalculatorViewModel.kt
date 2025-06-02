@@ -3,13 +3,11 @@ package com.example.topacademy_android.features.calculator.presentation.viewmode
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.topacademy_android.features.calculator.data.repository.CalculatorRepositoryImpl
 import com.example.topacademy_android.features.calculator.domain.usecase.CalculateExpressionUseCase
 
-class CalculatorViewModel : ViewModel() {
-    
-    private val repository = CalculatorRepositoryImpl()
-    private val calculateExpressionUseCase = CalculateExpressionUseCase(repository)
+class CalculatorViewModel(
+    private val calculateExpressionUseCase: CalculateExpressionUseCase
+) : ViewModel() {
     
     private val _currentExpression = MutableLiveData<String>("")
     val currentExpression: LiveData<String> = _currentExpression
@@ -41,7 +39,6 @@ class CalculatorViewModel : ViewModel() {
         if (current.isEmpty()) return
         
         if (isLastInputOperator) {
-            // Заменяем последний оператор
             _currentExpression.value = current.dropLast(1) + operator
         } else {
             _currentExpression.value = current + operator
@@ -60,7 +57,6 @@ class CalculatorViewModel : ViewModel() {
         
         val current = _currentExpression.value ?: ""
         
-        // Проверяем, есть ли уже десятичная точка в последнем числе
         val lastNumberStart = current.lastIndexOfAny(charArrayOf('+', '-', '×', '÷')) + 1
         val lastNumber = current.substring(lastNumberStart)
         
@@ -78,10 +74,8 @@ class CalculatorViewModel : ViewModel() {
     fun toggleSign() {
         val current = _currentExpression.value ?: ""
         if (current.isNotEmpty() && !isLastInputOperator) {
-            // Простая реализация смены знака для последнего числа
             val lastOperatorIndex = current.lastIndexOfAny(charArrayOf('+', '-', '×', '÷'))
             if (lastOperatorIndex == -1) {
-                // Только одно число
                 if (current.startsWith("-")) {
                     _currentExpression.value = current.drop(1)
                 } else {

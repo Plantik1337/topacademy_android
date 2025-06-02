@@ -2,16 +2,16 @@ package com.example.topacademy_android.features.calculator.presentation.ui
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.topacademy_android.R
 import com.example.topacademy_android.databinding.ActivityCalculatorBinding
 import com.example.topacademy_android.features.calculator.presentation.viewmodel.CalculatorViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CalculatorActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityCalculatorBinding
-    private val viewModel: CalculatorViewModel by viewModels()
+    private val viewModel: CalculatorViewModel by viewModel()
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +55,6 @@ class CalculatorActivity : AppCompatActivity() {
     }
     
     private fun setupClickListeners() {
-        // Цифры
         binding.btn0.setOnClickListener { viewModel.inputNumber("0") }
         binding.btn1.setOnClickListener { viewModel.inputNumber("1") }
         binding.btn2.setOnClickListener { viewModel.inputNumber("2") }
@@ -67,20 +66,17 @@ class CalculatorActivity : AppCompatActivity() {
         binding.btn8.setOnClickListener { viewModel.inputNumber("8") }
         binding.btn9.setOnClickListener { viewModel.inputNumber("9") }
         
-        // Операторы
         binding.btnPlus.setOnClickListener { viewModel.inputOperator("+") }
         binding.btnMinus.setOnClickListener { viewModel.inputOperator("-") }
         binding.btnMultiply.setOnClickListener { viewModel.inputOperator("×") }
         binding.btnDivide.setOnClickListener { viewModel.inputOperator("÷") }
         
-        // Специальные кнопки
         binding.btnDot.setOnClickListener { viewModel.inputDecimal() }
         binding.btnPlusMinus.setOnClickListener { viewModel.toggleSign() }
         binding.btnC.setOnClickListener { viewModel.clearAll() }
         binding.btnDel.setOnClickListener { viewModel.deleteLastCharacter() }
         binding.btnEquals.setOnClickListener { viewModel.calculate() }
         
-        // Процент (пока не реализован)
         binding.btnPercent.setOnClickListener {
             Toast.makeText(this, getString(R.string.calc_percent_not_implemented), Toast.LENGTH_SHORT).show()
         }
