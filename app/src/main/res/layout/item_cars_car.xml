@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_8dp">
+
+    <ImageView
+        android:id="@+id/imageViewCar"
+        android:layout_width="@dimen/_100dp"
+        android:layout_height="@dimen/_100dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewBrandModel"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Brand_model"
+        android:textStyle="bold"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintStart_toEndOf="@id/imageViewCar"
+        app:layout_constraintTop_toTopOf="@id/imageViewCar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewYearCost"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Yearandprice"
+        android:textSize="@dimen/_18sp"
+        app:layout_constraintStart_toStartOf="@id/textViewBrandModel"
+        app:layout_constraintTop_toBottomOf="@id/textViewBrandModel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

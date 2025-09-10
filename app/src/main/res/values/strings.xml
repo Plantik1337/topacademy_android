@@ -97,6 +97,15 @@
     <string name="degree2">18°</string>
     <string name="label_temp_range">Макс / Мин</string>
     <string name="label_wind">Ветер</string>
+    <string name="weather_error_generic">Не удалось загрузить прогноз. Проверьте интернет и повторите.</string>
 
+    <string name="car_brand_model_format">%1$s %2$s</string>
+    <string name="car_year_cost_format">%1$s, %2$s\u00A0₽</string>
 
+    <plurals name="cars_years">
+        <item quantity="one">%d год</item>
+        <item quantity="few">%d года</item>
+        <item quantity="many">%d лет</item>
+        <item quantity="other">%d лет</item>
+    </plurals>
 </resources>
