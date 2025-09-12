@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
 
 object WeatherUi {
 
-    fun iconFor(code: String): Int = when (code) {
+    fun iconFor(code: String): Int = when (code.lowercase()) {
         "clear" -> R.drawable.ic_sunny_24
         "pcloudy", "mcloudy", "cloudy" -> R.drawable.ic_cloud_24
         "rain", "lightrain", "oshower", "ishower", "rainday" -> R.drawable.ic_rain_24
@@ -17,7 +17,7 @@ object WeatherUi {
         else -> R.drawable.ic_cloud_24
     }
 
-    fun textFor(ctx: Context, code: String): String = when (code) {
+    fun textFor(ctx: Context, code: String): String = when (code.lowercase()) {
         "clear" -> ctx.getString(R.string.weather_clear)
         "pcloudy" -> ctx.getString(R.string.weather_pcloudy)
         "mcloudy" -> ctx.getString(R.string.weather_mcloudy)

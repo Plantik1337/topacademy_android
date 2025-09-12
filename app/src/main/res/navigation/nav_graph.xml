@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeLoginFragment">
+
+    <fragment
+        android:id="@+id/homeLoginFragment"
+        android:name="com.example.topacademy_android.feature.home.presentation.ui.HomeLoginFragment"
+        android:label="@string/title_home">
+      <action
+         android:id="@+id/action_homeLogin_to_home"
+         app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.topacademy_android.feature.home.presentation.ui.HomeFragment"
+        android:label="@string/title_home">
+        <action
+            android:id="@+id/action_home_to_weather"
+            app:destination="@id/weatherFragment" />
+        <action
+            android:id="@+id/action_home_to_calculator"
+            app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_home_to_cars"
+            app:destination="@id/carsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.example.topacademy_android.feature.calculator.presentation.ui.CalculatorFragment"
+        android:label="@string/title_calculator" />
+
+    <fragment
+        android:id="@+id/carsFragment"
+        android:name="com.example.topacademy_android.feature.cars.presentation.ui.CarsFragment"
+        android:label="@string/title_cars" />
+
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.topacademy_android.feature.weather.presentation.ui.WeatherFragment"
+        android:label="@string/title_weather">
+        <action
+            android:id="@+id/action_weather_to_detail"
+            app:destination="@id/weatherDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="com.example.topacademy_android.feature.weather.presentation.ui.WeatherDetailFragment"
+        android:label="@string/title_weather_detail">
+        <argument android:name="date"    app:argType="integer" />
+        <argument android:name="code"    app:argType="string" />
+        <argument android:name="tmax"    app:argType="integer" />
+        <argument android:name="tmin"    app:argType="integer" />
+        <argument android:name="windmax" app:argType="integer" />
+    </fragment>
+
+</navigation>

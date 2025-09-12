@@ -4,7 +4,7 @@
     <string name="app_name">TopAcademy_android</string>
     <string name="Text">Задание на занятие </string>
     <string name="Begin">Начать </string>
-    <string name="calculator">Калькулятор </string>
+
     <string name="list">Список </string>
     <string name="weather">Погода </string>
     <string name="Back2">Назад </string>
@@ -12,7 +12,7 @@
     <string name="Back3">Назад </string>
     <string name="textTen">10</string>
     <string name="textAddition">5+5</string>
-
+    <string name="nav_cars">Список машин</string>
 
 
     <string name="ac">AC</string>
@@ -74,7 +74,7 @@
 
 
     <string name="title_weather">Погода</string>
-    <string name="title_weather_details">Детали прогноза</string>
+
     <string name="error_loading">Не удалось загрузить погоду</string>
     <string name="cd_weather_icon">Иконка погоды</string>
     <string name="city_country">Гюмри, Армения</string>
@@ -108,4 +108,17 @@
         <item quantity="many">%d лет</item>
         <item quantity="other">%d лет</item>
     </plurals>
+    <string name="title_home">Главная</string>
+    <string name="nav_weather">Погода</string>
+    <string name="nav_calculator">Калькулятор</string>
+
+
+    <string name="title_weather_detail">Детали прогноза</string>
+    <string name="temp_range_format">%1$d…%2$d°</string>
+
+
+    <string name="title_cars">Список машин</string>
+    <string name="weather_code_format">Код погоды: %1$d</string>
+    <string name="calc_error">Ошибка</string>
+    <string name="title_calculator">Калькулятор</string>
 </resources>

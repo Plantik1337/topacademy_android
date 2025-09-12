@@ -15,28 +15,10 @@
         android:theme="@style/Theme.TopacAdemy_android"
         tools:targetApi="31">
 
-        <activity
-            android:name=".feature.weather.presentation.ui.WeatherDetailActivity"
-            android:parentActivityName=".feature.weather.presentation.ui.WeatherActivity" />
+
 
         <activity
-            android:name=".feature.weather.presentation.ui.WeatherActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".feature.cars.presentation.ui.ListActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".feature.calculator.presentation.ui.CalculatorActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".feature.home.presentation.ui.HomeActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".feature.home.presentation.ui.MainActivity"
+            android:name=".feature.home.presentation.ui.RootActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
