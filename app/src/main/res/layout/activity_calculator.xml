@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.calculator.presentation.ui.CalculatorActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="@dimen/_4dp"
+        app:title="@string/Back1"
+        app:titleTextColor="@color/button_text"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/topBlock"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomBlock">
+
+        <TextView
+            android:id="@+id/operation"
+            style="@style/Operations_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_130dp"
+            android:ellipsize="start"
+            android:gravity="end"
+            android:singleLine="true"
+            android:text="@string/textAddition" />
+
+        <TextView
+            android:id="@+id/result"
+            style="@style/Operations_search"
+            android:layout_width="match_parent"
+        android:layout_height="@dimen/_130dp"
+            android:ellipsize="start"
+            android:gravity="end"
+            android:singleLine="true"
+            android:text="@string/textTen" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBlock"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBlock">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/b_sqrt"
+                style="@style/Operations_Sci"
+                android:text="@string/sqrt" />
+
+            <TextView
+                android:id="@+id/b_log"
+                style="@style/Operations_Sci"
+                android:text="@string/log2" />
+
+            <TextView
+                android:id="@+id/b_in"
+                style="@style/Operations_Sci"
+                android:text="@string/ln" />
+
+            <TextView
+                android:id="@+id/b_bracket1"
+                style="@style/Operations_Sci"
+                android:text="@string/left_bracket" />
+
+            <TextView
+                android:id="@+id/b_bracket2"
+                style="@style/Operations_Sci"
+                android:text="@string/right_bracket" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/b_xy"
+                style="@style/Operations_Sci"
+                android:text="@string/power" />
+
+            <TextView
+                android:id="@+id/b_log2"
+                style="@style/Operations_buttons"
+                android:text="@string/ac" />
+
+            <TextView
+                android:id="@+id/b_ln"
+                style="@style/Operations_buttons"
+                android:text="@string/backspace" />
+
+            <TextView
+                android:id="@+id/b_leftb"
+                style="@style/Operations_buttons"
+                android:text="@string/percent" />
+
+            <TextView
+                android:id="@+id/b_rightb"
+                style="@style/Operations_buttons"
+                android:text="@string/divide" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/b_sin"
+                style="@style/Operations_Sci"
+                android:text="@string/sin" />
+
+            <TextView
+                android:id="@+id/b_seven"
+                style="@style/CalcButtonLight"
+                android:text="@string/seven" />
+
+            <TextView
+                android:id="@+id/b_eight"
+                style="@style/CalcButtonLight"
+                android:text="@string/eight" />
+
+            <TextView
+                android:id="@+id/b_nine"
+                style="@style/CalcButtonLight"
+                android:text="@string/nine" />
+
+            <TextView
+                android:id="@+id/b_multiply"
+                style="@style/Operations_buttons"
+                android:text="@string/multiply" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/b_cos"
+                style="@style/Operations_Sci"
+                android:text="@string/cos" />
+
+            <TextView
+                android:id="@+id/b_four"
+                style="@style/CalcButtonLight"
+                android:text="@string/four" />
+
+            <TextView
+                android:id="@+id/b_five"
+                style="@style/CalcButtonLight"
+                android:text="@string/five" />
+
+            <TextView
+                android:id="@+id/b_six"
+                style="@style/CalcButtonLight"
+                android:text="@string/six" />
+
+            <TextView
+                android:id="@+id/b_minus"
+                style="@style/Operations_buttons"
+                android:text="@string/minus" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/b_pi"
+                style="@style/Operations_Sci"
+                android:text="@string/pi" />
+
+            <TextView
+                android:id="@+id/b_one"
+                style="@style/CalcButtonLight"
+                android:text="@string/one" />
+
+            <TextView
+                android:id="@+id/b_two"
+                style="@style/CalcButtonLight"
+                android:text="@string/two" />
+
+            <TextView
+                android:id="@+id/b_three"
+                style="@style/CalcButtonLight"
+                android:text="@string/three" />
+
+            <TextView
+                android:id="@+id/b_addition"
+                style="@style/Operations_buttons"
+                android:text="@string/plus" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/b_e"
+                style="@style/Operations_Sci"
+                android:text="@string/e" />
+
+            <TextView
+                android:id="@+id/b_zero3"
+                style="@style/CalcButtonLight"
+                android:text="@string/zero3" />
+
+            <TextView
+                android:id="@+id/b_point"
+                style="@style/CalcButtonLight"
+                android:text="@string/dot" />
+
+            <TextView
+                android:id="@+id/b_zero"
+                style="@style/CalcButtonLight"
+                android:text="@string/zero" />
+
+            <TextView
+                android:id="@+id/b_equally"
+                style="@style/CalcButtonOrange"
+                android:text="@string/equals" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

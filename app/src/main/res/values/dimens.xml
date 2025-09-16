@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_48dp">48dp</dimen>
+    <dimen name="_130dp">130dp</dimen>
+    <dimen name="_0dp">0dp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="button_height">64dp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
+    <dimen name="button_margin">1dp</dimen>
+    <dimen name="search_padding_end">10dp</dimen>
+    <dimen name="search_text_size">50sp</dimen>
+    <dimen name="_38sp">38sp</dimen>
+    <dimen name="_20sp">20sp</dimen>
+    <dimen name="_18sp">18sp</dimen>
+    <dimen name="_160dp">160dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+    <dimen name="_4dp">4dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="_14sp">14sp</dimen>
+    <dimen name="_24sp">24sp</dimen>
+    <dimen name="_32dp">32dp</dimen>
+    <dimen name="_12dp">12dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_56sp">56sp</dimen>
+    <dimen name="_6dp">6dp</dimen>
+    <dimen name="icon_40">40dp</dimen>
+    <dimen name="icon_80">80dp</dimen>
+    <dimen name="header_height">220dp</dimen>
+    <dimen name="header_icon_size">96dp</dimen>
+    <dimen name="header_icon_padding">16dp</dimen>
+    <dimen name="header_temp_size">40sp</dimen>
+    <dimen name="item_height">60dp</dimen>
+    <dimen name="item_icon_size">22dp</dimen>
+    <dimen name="item_elevation">1dp</dimen>
+</resources>

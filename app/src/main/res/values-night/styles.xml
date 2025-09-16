@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="mainButton" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/purple_500</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <style name="CalcButtonBase">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+    </style>
+
+
+    <style name="CalcButtonLight" parent="CalcButtonBase">
+        <item name="android:background">@color/button_light</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <style name="CalcButtonOrange" parent="CalcButtonBase">
+        <item name="android:background">@color/button_orange_bg</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+  \>
+    <style name="Operations_Sci" parent="CalcButtonBase">
+        <item name="android:background">@color/button_dark_bg</item>
+        <item name="android:textColor">@color/button_gray_text</item>
+    </style>
+
+
+    <style name="Operations_buttons" parent="CalcButtonBase">
+        <item name="android:background">@color/button_dark_bg</item>
+        <item name="android:textColor">@color/button_orange_bg</item>
+    </style>
+
+
+    <style name="Operations_search">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/button_light_bg</item>
+        <item name="android:textColor">@color/button_orange_bg</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:paddingRight">@dimen/search_padding_end</item>
+        <item name="android:textSize">@dimen/search_text_size</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+    </style>
+
+    <style name="Theme.TopacAdemy_android" parent="Base.Theme.TopacAdemy_android" />
+
+
+
+</resources>

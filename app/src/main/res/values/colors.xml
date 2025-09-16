@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="orange">#BF8512</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background_purple">#f8f4ff</color>
+    <color name="button_light_bg">#f0f0f0</color>
+    <color name="button_light">#808080</color>
+    <color name="button_dark_bg">#171616</color>
+    <color name="button_orange_bg">#E64400</color>
+    <color name="button_gray_text">#CCCCCC</color>
+    <color name="purple_500">#6200EE</color>
+
+
+
+    <color name="background_color">#FFFFFF</color>
+    <color name="button_text">#000000</color>
+    <color name="button_background">#DDDDDD</color>
+
+
+    <color name="background_color2">#FFFFFF</color>
+    <color name="text_title_color">#FF6B00</color>
+    <color name="button_bg">#BB86FC</color>
+    <color name="button_text2">#000000</color>
+
+
+    <color name="weather_background">#FFFFFF</color>
+    <color name="weather_button_text">#000000</color>
+    <color name="weather_button_bg">#BBDEFB</color>
+
+
+    <color name="icon_color">#000000</color>
+
+
+
+
+    <color name="background_top">#DCEBFC</color>
+    <color name="background_bottom">#FFFFFF</color>
+    <color name="text_main">#0B132A</color>
+    <color name="button_bg2">#0B132A</color>
+    <color name="button_text3">#FFFFFF</color>
+
+
+
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#000000</color>
+
+    <color name="tempCold">#FFFBE4CF</color>
+    <color name="tempCool">#FFF5D3A6</color>
+    <color name="tempMild">#FFEFB87A</color>
+    <color name="tempWarm">#FFE79A4B</color>
+    <color name="tempHot">#FFD97A27</color>
+
+    <color name="heroStart">#3F51B5</color>
+    <color name="heroEnd">#2196F3</color>
+    <color name="weatherCardDefault">#FFE9A46F</color>
+    <color name="weatherCardText">#1A1A1A</color>
+    <color name="header_text_shadow">#66000000</color>
 </resources>
